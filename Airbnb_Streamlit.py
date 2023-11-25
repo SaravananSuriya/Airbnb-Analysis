@@ -5,7 +5,6 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import pandas as pd
-import numpy as np
 
 img = Image.open('C:\\Users\\WELCOME\\OneDrive\\Desktop\\saravanan\\Visual_Studio_Code\\images\\00-featured-airbnb-pink-logomark.jpg')
 st.set_page_config(page_title = 'Airbnb Analysis', page_icon = img, layout = 'wide')
@@ -321,19 +320,19 @@ elif selected == "Map":
     fig.update_geos(fitbounds="locations")
     st.plotly_chart(fig)
 
-    # st.markdown("# Number of Reviews")
-    # fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',zoom=9.3,color='number_of_reviews',width=1400,height=600,size = 'number_of_reviews',size_max=30,hover_name='neighbourhood_group',hover_data='neighbourhood',color_continuous_scale='jet')
-    # fig.update_layout(mapbox_style='carto-positron')
-    # fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
-    # fig.update_geos(fitbounds="locations")
-    # st.plotly_chart(fig)
+    st.markdown("# Number of Reviews")
+    fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',zoom=9.3,color='number_of_reviews',width=1400,height=600,size = 'number_of_reviews',size_max=30,hover_name='neighbourhood_group',hover_data='neighbourhood',color_continuous_scale='jet')
+    fig.update_layout(mapbox_style='carto-positron')
+    fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
+    fig.update_geos(fitbounds="locations")
+    st.plotly_chart(fig)
 
-    # st.markdown("# Availability of 365")
-    # fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',zoom=9.3,color='availability_365',width=1400,height=600,size = 'availability_365',size_max=30,hover_name='neighbourhood_group',hover_data='neighbourhood',color_continuous_scale='jet')
-    # fig.update_layout(mapbox_style='carto-positron')
-    # fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
-    # fig.update_geos(fitbounds="locations")
-    # st.plotly_chart(fig)
+    st.markdown("# Availability of 365")
+    fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',zoom=9.3,color='availability_365',width=1400,height=600,size = 'availability_365',size_max=30,hover_name='neighbourhood_group',hover_data='neighbourhood',color_continuous_scale='jet')
+    fig.update_layout(mapbox_style='carto-positron')
+    fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
+    fig.update_geos(fitbounds="locations")
+    st.plotly_chart(fig)
 
 hide = """
     <style>
