@@ -5,7 +5,6 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import pandas as pd
-import numpy as np
 
 img = Image.open('C:\\Users\\WELCOME\\OneDrive\\Desktop\\saravanan\\Visual_Studio_Code\\images\\00-featured-airbnb-pink-logomark.jpg')
 st.set_page_config(page_title = 'Airbnb Analysis', page_icon = img, layout = 'wide')
