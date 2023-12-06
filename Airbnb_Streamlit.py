@@ -307,7 +307,11 @@ elif selected == "Map":
     
     if choice == 'All Locations of Airbnb in Map View':
         st.markdown("# All Locations of Airbnb in Map View")
-        st.map(df,latitude='latitude',longitude='longitude')
+        fig = px.scatter_mapbox(df,lat = 'latitude',lon='longitude',zoom=9.3,width=1100,height=600,hover_data='neighbourhood',hover_name='neighbourhood_group',text='name')
+        fig.update_layout(mapbox_style='carto-darkmatter')
+        fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
+        fig.update_geos(fitbounds="locations")
+        st.plotly_chart(fig)
         st.stop()
 
     elif choice == 'Price Analysis with specific Neighbourhood Group':
@@ -378,35 +382,21 @@ elif selected == "Map":
         fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
         fig.update_geos(fitbounds="locations")
         st.plotly_chart(fig)
+        fig.update_layout(
+        mapbox_style="white-bg",
+        mapbox_layers=[
+            {
+                "below": 'traces',
+                "sourcetype": "raster",
+                "sourceattribution": "United States Geological Survey",
+                "source": [
+                    "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"
+                ]
+            }
+          ])
         st.stop()
 
 
-    # st.markdown("# All Locations of Airbnb in Map View")
-    # fig = px.scatter_mapbox(df,lat = 'latitude',lon='longitude',zoom=9.3,width=1100,height=600,hover_data='neighbourhood',hover_name='neighbourhood_group',text='name')
-    # fig.update_layout(mapbox_style='carto-darkmatter')
-    # fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
-    # fig.update_geos(fitbounds="locations")
-    # st.plotly_chart(fig)
-
-    # st.markdown("# Availability of 365")
-    # fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',zoom=9.3,color='availability_365',width=1400,height=600,size = 'availability_365',size_max=30,hover_name='neighbourhood_group',hover_data='neighbourhood',color_continuous_scale='jet')
-    # fig.update_layout(mapbox_style='carto-positron')
-    # fig.update_layout(margin={'r':0,'t':50,'l':0,'b':10})
-    # fig.update_geos(fitbounds="locations")
-    # st.plotly_chart(fig)
-
-    # fig.update_layout(
-    # mapbox_style="white-bg",
-    # mapbox_layers=[
-    #     {
-    #         "below": 'traces',
-    #         "sourcetype": "raster",
-    #         "sourceattribution": "United States Geological Survey",
-    #         "source": [
-    #             "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"
-    #         ]
-    #     }
-    #   ])
 hide = """
     <style>
     footer {visibility: hidden;}
