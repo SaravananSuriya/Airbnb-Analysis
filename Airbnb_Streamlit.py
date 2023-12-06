@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import pandas as pd
-import numpy as np
+
 
 img = Image.open('C:\\Users\\WELCOME\\OneDrive\\Desktop\\saravanan\\Visual_Studio_Code\\images\\00-featured-airbnb-pink-logomark.jpg')
 st.set_page_config(page_title = 'Airbnb Analysis', page_icon = img, layout = 'wide')
@@ -30,6 +30,8 @@ if selected == 'Home':
     st.markdown("## :black[&nbsp; &nbsp; &nbsp; &nbsp; Travel Industry, Property Management and Tourism.]")
     st.markdown("# :red[Problem Statement:]")
     st.markdown("## :black[&nbsp; &nbsp; &nbsp; &nbsp; This project aims to analyze Airbnb data using MongoDB Atlas, perform data cleaning and preparation, develop interactive geospatial visualizations, and create dynamic plots to gain insights into pricing variations, availability patterns, and location-based trends.]")
+    st.stop()
+
 
 elif selected == 'About':
     column1,column2,column3 = st.columns([2,4,2], gap = 'large')
@@ -49,6 +51,8 @@ elif selected == 'About':
         st.markdown("## :red[Airbnb began in 2008 when two designers who had space to share hosted three travelers looking for a place to stay. Now, millions of Hosts and guests have created [free Airbnb accounts](%s) to enjoy each other's unique view of the world. You can host anything, anywhere, so guests can enjoy everything, everywhere. ]"% url)
     st.markdown("# :black[How Airbnb Working:]")        
     st.markdown("## :red[&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Airbnb is an online marketplace that connects people who want to rent out their property with people who are looking for accommodations, typically for short stays. Airbnb offers hosts a relatively easy way to earn some income from their property.]")
+    st.stop()
+
 
 elif selected == "Analysis":
     df = pd.read_csv("AB1_NYC_2019.csv")
@@ -280,8 +284,9 @@ elif selected == "Analysis":
             st.dataframe(data_frame.style.background_gradient(cmap='Blues'),use_container_width=True,width=350)
     pie = px.pie(data_frame,names='Minimum Nights',values='Count',width=800)
     st.plotly_chart(pie)
+    st.stop()
 
-    
+
 elif selected == "Map":
     df = pd.read_csv("AB1_NYC_2019.csv")
     st.sidebar.markdown("# :rainbow[Select an option to Filter:]")
