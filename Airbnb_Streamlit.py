@@ -30,6 +30,13 @@ if selected == 'Home':
     st.markdown("## :black[&nbsp; &nbsp; &nbsp; &nbsp; Travel Industry, Property Management and Tourism.]")
     st.markdown("# :red[Problem Statement:]")
     st.markdown("## :black[&nbsp; &nbsp; &nbsp; &nbsp; This project aims to analyze Airbnb data using MongoDB Atlas, perform data cleaning and preparation, develop interactive geospatial visualizations, and create dynamic plots to gain insights into pricing variations, availability patterns, and location-based trends.]")
+    hide = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide,unsafe_allow_html = True)
     st.stop()
 
 
@@ -51,6 +58,13 @@ elif selected == 'About':
         st.markdown("## :red[Airbnb began in 2008 when two designers who had space to share hosted three travelers looking for a place to stay. Now, millions of Hosts and guests have created [free Airbnb accounts](%s) to enjoy each other's unique view of the world. You can host anything, anywhere, so guests can enjoy everything, everywhere. ]"% url)
     st.markdown("# :black[How Airbnb Working:]")        
     st.markdown("## :red[&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Airbnb is an online marketplace that connects people who want to rent out their property with people who are looking for accommodations, typically for short stays. Airbnb offers hosts a relatively easy way to earn some income from their property.]")
+    hide = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide,unsafe_allow_html = True)
     st.stop()
 
 
@@ -284,10 +298,26 @@ elif selected == "Analysis":
             st.dataframe(data_frame.style.background_gradient(cmap='Blues'),use_container_width=True,width=350)
     pie = px.pie(data_frame,names='Minimum Nights',values='Count',width=800)
     st.plotly_chart(pie)
+
+    hide = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide,unsafe_allow_html = True)
     st.stop()
 
 
 elif selected == "Map":
+    hide = """
+        <style>
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide,unsafe_allow_html = True)
+    
     df = pd.read_csv("AB1_NYC_2019.csv")
     st.sidebar.markdown("# :rainbow[Select an option to Filter:]")
     neigh_group = st.sidebar.selectbox(
@@ -400,13 +430,3 @@ elif selected == "Map":
             }
           ])
         st.stop()
-
-
-hide = """
-    <style>
-    footer {visibility: hidden;}
-    # header {visibility: hidden;}
-    </style>
-    """
-st.markdown(hide,unsafe_allow_html = True)
- 
