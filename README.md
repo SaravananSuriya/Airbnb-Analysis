@@ -2,6 +2,8 @@
 
 **Project Title** : Airbnb Analysis.
 
+**Linkedin URL** : https://www.linkedin.com/in/saravanan-b-241468269/details/projects/
+
 **Skills take away From This Project** : Python scripting, Data Preprocessing, Visualization,
 EDA, Streamlit, MongoDb.
 
